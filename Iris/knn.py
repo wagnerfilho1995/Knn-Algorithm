@@ -101,7 +101,7 @@ while w != 0 or s != "0\n":
 		print("Escolha uma planta de 1 a 150 para classificar:")
 		
 		p = int ( input() )
-		p += 1
+		p -= 1
 		dist = []
 		
 		print("Defina um k: ")
@@ -115,7 +115,7 @@ while w != 0 or s != "0\n":
 								D[p][4], D[i][4])
 				dist.append([d, D[i]])
 		t = knn(dist, k)
-		print("A planta {} foi classificada como {} - (Classe {})".format(p-1, classes[t-1], t )) 
+		print("A planta {} foi classificada como {} - (Classe {})".format(p+1, classes[t-1], t )) 
 
 	elif w == 2:
 		print("Defina um k: ")
