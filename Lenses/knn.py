@@ -95,7 +95,7 @@ while w != 0 or s != "0":
 		if p > 24 or p < 1:
 			print("Por favor digite apenas um número entre 1 e 24")
 			continue
-		p += 1
+		p -= 1
 		dist = []
 		print("Defina um k: ")
 		k = int ( input() )
@@ -109,7 +109,7 @@ while w != 0 or s != "0":
 								patients[p][4], patients[i][4])
 				dist.append([d, patients[i]])
 		t = knn(dist, k)
-		print("O paciente {} foi classificado como {} - (Classe {})".format(p-1, classes[t-1], t )) 
+		print("O paciente {} foi classificado como {} - (Classe {})".format(p+1, classes[t-1], t )) 
 
 	elif w == 2:
 		print("Defina um k: ")
