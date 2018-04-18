@@ -85,6 +85,8 @@ while w != 0 or s != "0":
 	print("\nClassifique!")
 	print("1 - Individualmente")
 	print("2 - Todos de uma vez")
+	print("3 - Um novo paciente")
+	print("4 - Listar todas as amostras")
 	print("\n\n0- Sair")
 	w = int(input())
 
@@ -141,6 +143,39 @@ while w != 0 or s != "0":
 		print("Classificados:{} pacientes -> {:.2f}% of the patients {} - (Classe {})".format( t2, (t2/amostras)*100, classes[1], 2))
 		print("Classificados:{} pacientes -> {:.2f}% of the patients {} - (Classe {})".format( t3, (t3/amostras)*100, classes[2], 3))
 		print("==================================================\n\n")
+
+	elif w == 3:
+		print("Insira as informações do novo paciente:")
+		age = int ( input("age of the patient: (1) young, (2) pre-presbyopic, (3) presbyopic ") )
+		
+		sp = int ( input("spectacle prescription:  (1) myope, (2) hypermetrope ") )
+		
+		ast = int ( input("astigmatic:     (1) no, (2) yes ") )
+
+		tpr = int ( input("tear production rate:  (1) reduced, (2) normal ") )
+
+		dist = []
+		
+		pati = [amostras+1, age, sp, ast, tpr, -1]
+
+		print("Defina um k: ")
+		k = int ( input() )
+
+		for i in range(0, amostras):
+			d = distance( pati[1], D[i][1], 
+						  pati[2], D[i][2], 
+						  pati[3], D[i][3], 
+						  pati[4], D[i][4])
+			dist.append([d, D[i]])
+		t = knn(dist, k)
+		pati[5] = t
+		print("O novo paciente foi classificada como {} - (Classe {})".format(classes[t-1], t ))
+		D.append(pati)
+		amostras += 1
+	elif w == 4:
+		for i in range(amostras):
+			print(D[i])
+
 	print("\nPressione qualquer tecla para continuar:")
 	s = input()
 print("Até Mais! e Que a força esteja com você!")
