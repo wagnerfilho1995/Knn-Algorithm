@@ -92,6 +92,9 @@ while w != 0 or s != "0":
 	elif w == 1:
 		print("Escolha um paciente de 1 a 24 para classificar:")
 		p = int ( input() )
+		if p > 24 or p < 1:
+			print("Por favor digite apenas um número entre 1 e 24")
+			continue
 		p += 1
 		dist = []
 		print("Defina um k: ")
@@ -131,13 +134,13 @@ while w != 0 or s != "0":
 
 		for i in range(amostras):
 			dupla = classificacao[i]
-			#print("P{} -> {}".format(dupla[0], dupla[1]))
+			print("P{} -> {}".format(dupla[0], dupla[1]))
 			
 		print("\n==============================================\nResultados:")
 		print("Classificados:{} pacientes -> {:.2f}% of the patients {} - (Classe {})".format( t1, (t1/amostras)*100, classes[0], 1))
 		print("Classificados:{} pacientes -> {:.2f}% of the patients {} - (Classe {})".format( t2, (t2/amostras)*100, classes[1], 2))
 		print("Classificados:{} pacientes -> {:.2f}% of the patients {} - (Classe {})".format( t3, (t3/amostras)*100, classes[2], 3))
 		print("==================================================\n\n")
-	print("\nDigite alguma tecla diferente de '0' para testar novamente")
+	print("\nPressione qualquer tecla para continuar:")
 	s = input()
 print("Até Mais! e Que a força esteja com você!")
